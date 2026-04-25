@@ -308,7 +308,7 @@ public class Fechas extends JFrame {
 							if (rs.next()) {
 								dni = rs.getString(1);
 								nombre = rs.getString(2)+" "+rs.getString(3);
-								App_Administrador2 admin = new App_Administrador2(dni,nombre, comboBox_Mes.getSelectedItem().toString(),(int) spinner.getValue());
+								Administrador admin = new Administrador(dni,nombre, comboBox_Mes.getSelectedItem().toString(),(int) spinner.getValue());
 						        
 								// Cargar datos al construir el frame
 						        

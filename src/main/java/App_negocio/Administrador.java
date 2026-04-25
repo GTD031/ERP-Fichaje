@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 
 import modelo.Funciones;
 
-public class App_Administrador2 extends JFrame {
+public class Administrador extends JFrame {
 
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
@@ -115,7 +115,7 @@ public class App_Administrador2 extends JFrame {
 
     // ─── Constructor ─────────────────────────────────────────────────────────────
 
-    public App_Administrador2(String dni, String nombre, String mes, int año) {
+    public Administrador(String dni, String nombre, String mes, int año) {
         this.dni = dni;
         this.año = año;
         
