@@ -1,0 +1,19 @@
+
+TAREA:
+
+Emula el comportamiento del MVC 
+de los paquetes main, controlador, modelo y vista 
+en tu proyecto App_negocio
+
+1.- Identifica las funciones que usas, crea un paquete llamado App_modelo
+y los guardas ahi.
+
+2.- Identifica las clases que muestran al ejecutar la app (las ventanas), crea un paquete 
+llamado App_vista y las guardas ahi (Un archivo por clase) junto a sus atributos.
+
+3.- Crea un nuevo paquete llamado Fichaje_controlador donde vas a crear una clase 
+llamada igual (Fichaje_controlador) y que tendra como atributos un objeto llamado 
+Fichaje (la ventana principal). Mantente pendiente de recibir otras instrucciones aqui
+
+4.- Crea un paquete Main (con un main para ejecutar la clase) y dentro del main 
+invocas la clase Fichaje y el controlador de Fichaje.
