@@ -106,8 +106,8 @@ public class Login extends JFrame {
 						Fichaje frame2 = new Fichaje(dni, nombre, apellido, rol);
 						frame2.setVisible(true);
 					} else {
-						JOptionPane.showMessageDialog(null, "Error de login.", "Error", JOptionPane.ERROR_MESSAGE);
-						JOptionPane.showMessageDialog(null, "Verifica que usuario y contraseña estén bien escritos, son sensible a mayúsculas.", "Error", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "Error de login. Datos incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null, "Verifica que usuario y contraseña estén bien escritos, son sensibles a mayúsculas.", "Error", JOptionPane.INFORMATION_MESSAGE);
 					}
 				}catch (SQLException q) {
 					System.out.println("Error al realizar este logueo.");
