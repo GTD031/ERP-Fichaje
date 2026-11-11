@@ -16,14 +16,12 @@ import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import App_negocio.Fechas;
-
 public class Funciones {
 
 	public static Connection cn;
 	public static PreparedStatement pstmt;
 
-	public static void cerrarConexionDML(String str){
+	public static void cerrarConexionDML(String str){	//ESTO VA PARA EL MODELO
 		try {
 			pstmt.close();
 			cn.close();
@@ -33,7 +31,7 @@ public class Funciones {
 	}
 
 
-    public static Connection getConexion() {
+    public static Connection getConexion() {	//ESTO VA PARA EL MODELO
         try {
             return DriverManager.getConnection("jdbc:ucanaccess://src/main/resources/BDFichaje.accdb");
         } catch (SQLException e) {
@@ -42,7 +40,7 @@ public class Funciones {
         }
     }
     
-	public static void conectar() {
+	public static void conectar() {	//ESTO VA PARA EL MODELO
 		try {
 			cn = DriverManager.getConnection("jdbc:ucanaccess://src/main/resources/BDFichaje.accdb");
 		} catch (SQLException e) {
@@ -54,7 +52,7 @@ public class Funciones {
 		}
 	}
 
-	public static int[] Diferencia_Horas(LocalTime data1, LocalTime data2) {
+	public static int[] Diferencia_Horas(LocalTime data1, LocalTime data2) {	//CODIGO REDUNDANTE (REVISAR)
 			int[] array = new int[2];
 			
 			array[0] = data2.getHour() - data1.getHour();
@@ -67,7 +65,7 @@ public class Funciones {
 		return array;
 	}
 
-	public static int[] Diferencia_Horas_receso(String CampoReceso) {
+	public static int[] Diferencia_Horas_receso(String CampoReceso) { //CODIGO REDUNDANTE
 		
 		int[] array = new int[2];	//el array de las horas calculadas en las que calculare la funcion.
 		if (CampoReceso == null || CampoReceso.equals("")) {
@@ -105,7 +103,8 @@ public class Funciones {
 		return array;
 	}
 
-	protected static int[] get_Hours_Day(LocalDate Fecha, String campoDNI) {		//campoDNI será Fechas.DNI2.getText()
+	//CODIGO A CONTINUACION VA PARA EL MODELO
+	public static int[] get_Hours_Day(LocalDate Fecha, String campoDNI) {		//campoDNI será Fechas.DNI2.getText()
 		ResultSet rs;
 		String Receso, SFecha;
 		int[] Suma = {0,0};
@@ -148,14 +147,14 @@ public class Funciones {
 		return Suma;
 	}
 	
-
+	//CODIGO REDUNDANTE: VA PARA EL CONTROLADOR (REVISAR)
 	protected static int[] get_Hours_Month_Today(int Mes, int Año) {	//codificar el mes como un número
 		int[] array = {0,0};
 		int[] arrayS = new int[2];
 		int res;
 		LocalDate date = LocalDate.of(Año,Mes,1), Today = LocalDate.now();
 		while (date.getDayOfMonth() <= Today.getDayOfMonth() && date.getMonthValue() == Mes) {		//el mes es un entero entre 1 y 12. 
-			arrayS = Fechas.get_Hours_Day(date);
+			//arrayS = Fechas.get_Hours_Day(date, DNI2.getText());
 			array[0] += arrayS[0];
 			array[1] += arrayS[1];	//sumo las hora y los minutos todo chueco, para acomodarlo luego.
 			date = date.plusDays(1);
@@ -166,6 +165,7 @@ public class Funciones {
 		return array;
 	}
 	
+	//VA PARA EL MODELO
 	public static String[] Añadir_usuarios() {
 		ResultSet rs;
 		String[] lista = null;
@@ -194,7 +194,7 @@ public class Funciones {
 		return lista;
 		}
 	
-	public static boolean CumplePat(Pattern Ptron, JTextField campo, String strNopat, String strVacio) {
+	public static boolean CumplePat(Pattern Ptron, JTextField campo, String strNopat, String strVacio) {	//ESTO VA PARA EL CONTROLADOR, NO EN EL MODELO
 			
 			Matcher Mtron = Ptron.matcher(campo.getText());
 			
